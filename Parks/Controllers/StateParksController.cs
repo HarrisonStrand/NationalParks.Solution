@@ -42,7 +42,7 @@ namespace Parks.Controllers
             _db = db;
         }
 
-        //GET api/stateparks?region=south coast
+        //GET api/stateparksv2?region=south coast
         [HttpGet]
         public ActionResult<IEnumerable<StatePark>> Get(string name, string region)
         {
@@ -59,7 +59,7 @@ namespace Parks.Controllers
         }
 
 
-        // POST api/stateparks
+        // POST api/stateparksv2
         [HttpPost]
         public void Post([FromBody] StatePark statePark)
         {
@@ -67,14 +67,14 @@ namespace Parks.Controllers
             _db.SaveChanges();
         }
 
-        //Get api/stateparks/5
+        //Get api/stateparksv2/5
         [HttpGet("{id}")]
         public ActionResult<StatePark> Get(int id)
         {
             return _db.StateParks.FirstOrDefault(entry => entry.Id == id);
         }
 
-        // PUT api/stateparks/5
+        // PUT api/stateparksv2/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] StatePark statePark)
         {
@@ -83,7 +83,7 @@ namespace Parks.Controllers
             _db.SaveChanges();
         }
 
-        // DELETE api/stateparks/5
+        // DELETE api/stateparksv2/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
