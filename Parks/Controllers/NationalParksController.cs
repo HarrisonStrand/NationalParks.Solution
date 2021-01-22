@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Parks.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Parks.Controllers
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("1.0")] //NOT DEFAULT VERSION
     [Route("api/nationalparks")]
     [ApiController]
     public class NationalParksV1Controller : ControllerBase
@@ -19,7 +17,7 @@ namespace Parks.Controllers
             _db = db;
         }
 
-        //GET api/nationalparks/nationalparks?Name=Glacier-Bay
+        //GET api/nationalparks?version=1.0&name=Glacier Bay
         [HttpGet]
         public ActionResult<IEnumerable<NationalPark>> Get(string name)
         {
@@ -33,7 +31,7 @@ namespace Parks.Controllers
         }
     }
 
-    [ApiVersion("2.0")]
+    [ApiVersion("2.0")] //DEFAULT VERSION
     [Route("api/nationalparks")]
     [ApiController]
     public class NationalParksV2Controller : ControllerBase
@@ -44,11 +42,19 @@ namespace Parks.Controllers
             _db = db;
         }
 
-        //GET api/nationalparks?version=2.0
+        //GET api/nationalparks?name=Glacier Bay
         [HttpGet]
-        public ActionResult<IEnumerable<NationalPark>> Get()
+        public ActionResult<IEnumerable<NationalPark>> Get(string name, string location)
         {
             var query = _db.NationalParks.AsQueryable();
+			if (name != null)
+            {
+                query = query.Where(entry => entry.Name == name);
+            }
+			if (location != null)
+            {
+                query = query.Where(entry => entry.Location == location);
+            }
             return query.ToList();
         }
 

@@ -30,7 +30,7 @@ namespace Parks
             {
                 o.ReportApiVersions = true;
                 o.AssumeDefaultVersionWhenUnspecified = true;
-                o.DefaultApiVersion = new ApiVersion(1, 0);
+                o.DefaultApiVersion = new ApiVersion(2, 0);
             });
             services.AddSwaggerGen();
         }
