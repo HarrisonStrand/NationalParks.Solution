@@ -2,26 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>All State Parks:</h1>
+<h1 class="MainTitles">All State Parks</h1>
 
 <ol>
     @foreach (StatePark statePark in Model)
     {
-            <li>Name: @statePark.Name</li>
-            <li>State: @statePark.State</li>
-            <li>Region: @statePark.Region</li>
-            <li>Camping: @statePark.Camping</li>
-            <li>Description: @statePark.Description</li>
+            <p class="subheadings">Name</p>
+            <p class="bodies">@statePark.Name</p>
+            <p class="subheadings">State</p>
+            <p class="bodies">@statePark.State</p>
+            <p class="subheadings">Region</p>
+            <p class="bodies">@statePark.Region</p>
+            <p class="subheadings">Camping</p>
+            <p class="bodies">@statePark.Camping</p>
+            <p class="subheadings">Description</p>
+            <p class="bodies">@statePark.Description</p>
         <a href="/StateParks/Details/@(statePark.Id)">
-            <p>View Details</p>
+            <p class="modelobjectlinks">View Details</p>
         </a>
         <br>
     }
 </ol>
 
-<a href="/StateParks/Create/">
+<a class="bottomlinks" href="/StateParks/Create/">
     <p>Create</p>
 </a>
-<a href="/Home/Index/">
+<a class="bottomlinks" href="/Home/Index/">
     <p>Home Page</p>
 </a>
