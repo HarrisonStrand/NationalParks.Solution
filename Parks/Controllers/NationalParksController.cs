@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Parks.Controllers
 {
     [ApiVersion("1.0")] //NOT DEFAULT VERSION
-    [Route("api/nationalparks")]
+    [Route("api/nationalparksv1")]
     [ApiController]
     public class NationalParksV1Controller : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace Parks.Controllers
             _db = db;
         }
 
-        //GET api/nationalparks?version=1.0&name=Glacier Bay
+        //GET api/nationalparks?api-version=1.0&name=Glacier Bay
         [HttpGet]
         public ActionResult<IEnumerable<NationalPark>> Get(string name)
         {
@@ -32,7 +32,7 @@ namespace Parks.Controllers
     }
 
     [ApiVersion("2.0")] //DEFAULT VERSION
-    [Route("api/nationalparks")]
+    [Route("api/nationalparksv2")]
     [ApiController]
     public class NationalParksV2Controller : ControllerBase
     {
