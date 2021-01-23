@@ -54,3 +54,26 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.subheadings {
+  text-transform: bold;
+  font-size: 15px;
+}
+
+.bodies {
+  font-size: 20px;
+}
+
+.modelobjectlinks {
+  color:rgb(1, 77, 121);
+  font-size: 15px;
+}
+
+.bottomlinks {
+  color:rgb(1, 77, 121);
+  font-size: 25px;
+}
+
+.maintitles {
+  font-size: 50px;
+}
