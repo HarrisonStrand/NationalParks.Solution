@@ -1,0 +1,18 @@
+<h1>Edit Info:</h1>
+<form action="/StateParks/Details/@(Model.StateParkId)" method="post">
+    <label for="Name">Name</label>
+    <input id="Name" name="Name" type="text" value="@(Model.Name)">
+    <label for="State">State: </label>
+    <input id="State" name="State" type="text" value="@(Model.State)">
+    <label for="Region">Region:</label>
+    <input id="Region" name="Region" type="date" value="@(Model.Region)">
+    <label for="Camping">Camping:</label>
+    <input id="Camping" name="Camping" type="text" value="@(Model.Camping)">
+    <label for="Description">Description:</label>
+    <input id="Description" name="Description" type="text" value="@(Model.Description)">
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/Messages/Details/@(Model.MessageId)">
+    <p>Return to Details</p>
+</a>
